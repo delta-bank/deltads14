@@ -97,21 +97,19 @@
     
     /* POSIZIONAMENTO LIBERO */
     position: absolute; 
-    top: 75px;   /* Distanza dal bordo superiore */
+    top: 80px;   /* Distanza dal bordo superiore */
     left: 25px;  /* Distanza dal bordo sinistro */
     z-index: 3;
 }
 
-        /* Logo Circuito (es. Mastercard) */
-        .circuit-logo {
-            width: 60px;
-            opacity: 0.8;
-            
-            /* POSIZIONAMENTO LIBERO */
-    position: absolute; 
-    top: 25px;   /* Distanza dal bordo superiore */
-    left: 0px;  /* Distanza dal bordo sinistro */
-    z-index: 3;
+     /* MASTERCARD IN ALTO A DESTRA */
+        .mastercard-icon {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 45px;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 2;
         }
 
         .card-mid {
@@ -190,7 +188,7 @@
 
     <div class="balance-section">
         <p class="label">Current Balance</p>
-        <h1 class="balance">€ 1.250,00</h1>
+        <h1 class="balance">€ 1.251,00</h1>
     </div>
 
     <main class="main">
