@@ -25,58 +25,41 @@
             overflow: hidden;
         }
 
-        /* LOGO SOPRA IL SALDO */
+        /* HEADER */
         .brand-header {
             padding: 40px 20px 10px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
-        .custom-logo {
-            max-width: 180px;
-            height: auto;
-            max-height: 80px;
-            object-fit: contain;
-        }
+        .custom-logo { max-width: 180px; height: auto; max-height: 80px; object-fit: contain; }
 
         /* SALDO */
-        .balance-section {
-            padding: 20px;
-            text-align: center;
-        }
+        .balance-section { padding: 20px; text-align: center; }
         .label { color: var(--text-dim); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
         .balance { font-size: 46px; font-weight: 700; margin-top: 5px; }
 
         .main { flex: 1; padding: 0 25px; display: flex; flex-direction: column; align-items: center; }
 
         /* --- LOGICA CARTA 3D --- */
-        
-        /* Contenitore principale per la prospettiva 3D */
         .card-container {
             width: 100%;
             max-width: 340px;
             aspect-ratio: 1.58 / 1;
-            perspective: 1000px; /* Crea l'effetto 3D */
+            perspective: 1200px;
             z-index: 10;
         }
 
-        /* L'elemento che ruota effettivamente */
         .card-flipper {
             width: 100%;
             height: 100%;
             position: relative;
-            transform-style: preserve-3d; /* Mantiene gli elementi interni in 3D */
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Animazione fluida */
-            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Classe aggiunta da JS per far girare la carta */
-        .card-flipper.is-flipped {
-            transform: rotateY(180deg);
-        }
+        .card-flipper.is-flipped { transform: rotateY(180deg); }
 
-        /* Stile comune per le due facce (fronte e retro) */
         .card-face {
             width: 100%;
             height: 100%;
@@ -84,113 +67,102 @@
             position: absolute;
             top: 0;
             left: 0;
-            backface-visibility: hidden; /* Nasconde la faccia posteriore quando è girata */
+            backface-visibility: hidden;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
 
-        /* --- STILE FRONTE --- */
+        /* --- FRONTE --- */
         .card-front {
             background-color: var(--card-color);
             background-image: radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent);
-            z-index: 2; /* Il fronte è sopra inizialmente */
         }
 
-        /* Logo centrale (filigrana) */
         .card-center-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 130px;
-            opacity: 0.15;
-            z-index: 1;
-            pointer-events: none;
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 130px; opacity: 0.15; z-index: 1; pointer-events: none;
         }
 
-        /* Chip */
         .card-chip {
-            position: absolute;
-            top: 25px;
-            left: 25px;
-            width: 48px;
-            height: 35px;
+            position: absolute; top: 25px; left: 25px;
+            width: 48px; height: 35px;
             background: linear-gradient(135deg, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
-            border-radius: 6px;
-            z-index: 2;
+            border-radius: 6px; z-index: 2;
         }
 
-        /* Mastercard */
         .mastercard-icon {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 45px;
-            color: rgba(255, 255, 255, 0.8);
-            z-index: 2;
+            position: absolute; top: 25px; right: 25px;
+            font-size: 45px; color: rgba(255, 255, 255, 0.8); z-index: 2;
         }
 
-        /* Numero Carta */
         .card-number { 
-            position: absolute;
-            top: 55%;
-            left: 25px;
-            font-size: 20px; 
-            letter-spacing: 3px; 
-            color: #fff; 
-            font-family: 'Courier New', monospace;
-            z-index: 2;
+            position: absolute; top: 55%; left: 25px;
+            font-size: 20px; letter-spacing: 3px; color: #fff; font-family: 'Courier New', monospace;
         }
         
-        /* Nome e Data */
         .card-bottom-info {
-            position: absolute;
-            bottom: 25px;
-            left: 25px;
-            right: 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            z-index: 2;
+            position: absolute; bottom: 25px; left: 25px; right: 25px;
+            display: flex; justify-content: space-between; align-items: flex-end;
         }
-        
-        .card-name-txt { 
-            font-size: 13px; 
-            letter-spacing: 1px; 
-            text-transform: uppercase; 
-            color: #ffffff;
-            font-weight: 500;
-        }
+        .card-name-txt { font-size: 13px; text-transform: uppercase; color: #ffffff; font-weight: 500; }
+        .expiry-txt { font-size: 13px; color: #ffffff; font-weight: 500; }
 
-        .expiry-txt {
-            font-size: 13px;
-            color: #ffffff;
-            font-weight: 500;
-        }
-
-        /* --- STILE RETRO --- */
+        /* --- RETRO --- */
         .card-back {
-            background-color: #0d1226; /* Un blu ancora più scuro */
-            transform: rotateY(180deg); /* Ruotato di 180 gradi inizialmente */
+            background-color: #161d36;
+            transform: rotateY(180deg);
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            padding: 0;
         }
 
-        /* Immagine del retro (banda magnetica, CVV, ecc.) */
-        .card-back-image {
+        .magnetic-strip {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
+            height: 45px;
+            background: #000;
+            margin-top: 25px;
+        }
+
+        .signature-area {
+            width: 80%;
+            height: 35px;
+            background: rgba(255,255,255,0.8);
+            margin: 20px 25px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            border-radius: 4px;
+        }
+
+        .cvv-txt {
+            color: #000;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        .back-details {
+            margin: 20px 25px;
+            font-size: 8px;
+            line-height: 1.2;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+        }
+
+        .back-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+            width: 50px;
+            opacity: 0.3;
         }
 
         /* TASTI AZIONE */
         .actions { display: flex; gap: 40px; margin-top: 40px; }
         .btn-container { text-align: center; cursor: pointer; color: inherit; width: 100px; }
-        .btn-disabled { opacity: 0.3; cursor: default; }
-
         .circle-icon {
             width: 60px; height: 60px; border-radius: 20px;
             background: #111; border: 1px solid #222;
@@ -198,12 +170,9 @@
             font-size: 20px; margin-bottom: 10px; transition: 0.2s;
             margin: 0 auto 10px;
         }
-        .accent-color { color: var(--accent); border-color: rgba(0, 242, 255, 0.2); }
+        .btn-reverse { color: var(--accent); }
 
-        /* Tasto Reverse attivo */
-        .btn-reverse { color: var(--accent); border-color: rgba(0, 242, 255, 0.2); }
-
-        /* NAV bar */
+        /* NAV */
         .nav-bar {
             margin-top: auto;
             background: #080808;
@@ -212,7 +181,7 @@
             padding: 15px 0 35px;
             border-top: 1px solid #111;
         }
-        .nav-link { color: #444; text-decoration: none; font-size: 22px; }
+        .nav-link { color: #444; font-size: 22px; }
         .active-link { color: var(--accent); }
 
     </style>
@@ -229,18 +198,14 @@
     </div>
 
     <main class="main">
-        <div class="card-container" id="cardContainer">
+        <div class="card-container">
             <div class="card-flipper" id="cardFlipper">
                 
                 <div class="card-face card-front">
                     <img src="iltuologo.png" class="card-center-logo">
-
                     <div class="card-chip"></div>
-
                     <i class="fa-brands fa-cc-mastercard mastercard-icon"></i>
-
                     <div class="card-number">•••• •••• •••• 1055</div>
-
                     <div class="card-bottom-info">
                         <p class="card-name-txt">Leonardo Soru</p>
                         <p class="expiry-txt">06/50</p>
@@ -248,7 +213,16 @@
                 </div>
 
                 <div class="card-face card-back">
-                    <img src="il_tuo_retro.png" alt="Card Back" class="card-back-image">
+                    <div class="magnetic-strip"></div>
+                    <div class="signature-area">
+                        <span class="cvv-txt">884</span>
+                    </div>
+                    <div class="back-details">
+                        Questa carta è di proprietà di TPS BANK.<br>
+                        L'uso è soggetto ai termini di contratto.<br>
+                        Customer Service: +39 02 1234567
+                    </div>
+                    <img src="iltuologo.png" class="back-logo">
                 </div>
 
             </div>
@@ -256,7 +230,7 @@
 
         <div class="actions">
             <div class="btn-container" onclick="location.reload()">
-                <div class="circle-icon accent-color"><i class="fa-solid fa-arrows-rotate"></i></div>
+                <div class="circle-icon" style="color: var(--accent);"><i class="fa-solid fa-arrows-rotate"></i></div>
                 <p class="label" style="font-size: 11px;">Boost</p>
             </div>
             
@@ -277,16 +251,9 @@
         const cardFlipper = document.getElementById('cardFlipper');
         const reverseBtn = document.getElementById('reverseBtn');
 
-        // Funzione per girare la carta
-        function flipCard() {
+        reverseBtn.addEventListener('click', () => {
             cardFlipper.classList.toggle('is-flipped');
-        }
-
-        // Assegna la funzione al click sul tasto Reverse
-        reverseBtn.addEventListener('click', flipCard);
-        
-        // Opzionale: gira la carta anche cliccandoci sopra direttamente
-        // cardFlipper.addEventListener('click', flipCard);
+        });
     </script>
 
 </body>
