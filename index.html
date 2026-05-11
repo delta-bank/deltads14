@@ -163,33 +163,69 @@
 
     <script>
         const teamData = {
-            'F1': {
-                piloti: [{ nome: 'M. Rossi', img: 'https://via.placeholder.com/150', partenze: 45, podi: 12, vittorie: 5 }],
-                rankP: [{pos: 1, nome: 'M. Rossi', pt: 150}],
-                rankT: [{pos: 1, nome: 'VRT F1', pt: 280}],
-                last: [{pos: 1, nome: 'M. Rossi', pt: 25}],
-                palm: [{anno: '2025', logo: 'https://cdn-icons-png.flaticon.com/512/744/744922.png', testo: 'DRIVER CHAMPION'}]
+    'F1': {
+        piloti: [
+            { nome: 'M. Rossi', img: 'https://via.placeholder.com/150', partenze: 45, podi: 12, vittorie: 5 },
+            { nome: 'L. Bianchi', img: 'https://via.placeholder.com/150', partenze: 42, podi: 8, vittorie: 3 }
+        ],
+        rankP: [{pos: 1, nome: 'M. Rossi', pt: 150}, {pos: 2, nome: 'L. Bianchi', pt: 130}],
+        rankT: [{pos: 1, nome: 'VRT F1', pt: 280}],
+        last: [{pos: 1, nome: 'M. Rossi', pt: 25}, {pos: 4, nome: 'L. Bianchi', pt: 12}],
+        palm: [{anno: '2025', logo: 'https://cdn-icons-png.flaticon.com/512/744/744922.png', testo: 'DRIVER CHAMPION'}]
+    },
+    'F2': {
+        piloti: [
+            { nome: 'A. Neri', img: 'https://via.placeholder.com/150', partenze: 20, podi: 5, vittorie: 2 },
+            { nome: 'M. Viola', img: 'https://via.placeholder.com/150', partenze: 18, podi: 3, vittorie: 1 }
+        ],
+        rankP: [{pos: 2, nome: 'A. Neri', pt: 90}], 
+        rankT: [{pos: 2, nome: 'VRT Academy', pt: 140}],
+        last: [{pos: 3, nome: 'A. Neri', pt: 15}],
+        palm: [{anno: '2024', logo: 'https://cdn-icons-png.flaticon.com/512/744/744922.png', testo: 'DRIVER CHAMPION'}]
+    },
+    'F3': {
+        piloti: [
+            { nome: 'G. Verdi', img: 'https://via.placeholder.com/150', partenze: 10, podi: 2, vittorie: 0 },
+            { nome: 'F. Gialli', img: 'https://via.placeholder.com/150', partenze: 8, podi: 1, vittorie: 0 }
+        ],
+        rankP: [{pos: 5, nome: 'G. Verdi', pt: 45}], 
+        rankT: [{pos: 3, nome: 'VRT Junior', pt: 70}],
+        last: [{pos: 8, nome: 'G. Verdi', pt: 4}],
+        palm: [{anno: '2023', logo: 'https://cdn-icons-png.flaticon.com/512/744/744922.png', testo: 'DRIVER CHAMPION'}]
+    },
+    'F4': {
+        piloti: [
+            { 
+                nome: 'SORU-D14', 
+                img: 'soru-d14.png', 
+                partenze: 47, 
+                podi: 13, 
+                vittorie: 4 
             },
-            'F2': {
-                piloti: [{ nome: 'A. Neri', img: 'https://via.placeholder.com/150', partenze: 20, podi: 5, vittorie: 2 }],
-                rankP: [{pos: 2, nome: 'A. Neri', pt: 90}], rankT: [{pos: 2, nome: 'VRT Academy', pt: 140}],
-                last: [{pos: 3, nome: 'A. Neri', pt: 15}],
-                palm: [{anno: '2024', logo: 'https://cdn-icons-png.flaticon.com/512/744/744922.png', testo: 'DRIVER CHAMPION'}]
-            },
-            'F3': {
-                piloti: [{ nome: 'G. Verdi', img: 'https://via.placeholder.com/150', partenze: 10, podi: 2, vittorie: 0 }],
-                rankP: [{pos: 5, nome: 'G. Verdi', pt: 45}], rankT: [{pos: 3, nome: 'VRT Junior', pt: 70}],
-                last: [{pos: 8, nome: 'G. Verdi', pt: 4}],
-                palm: [{anno: '2023', logo: 'https://cdn-icons-png.flaticon.com/512/744/744922.png', testo: 'DRIVER CHAMPION'}]
-            },
-            'F4': {
-                piloti: [{ nome: 'SORU-D14', img: 'soru-d14.png', partenze: 47, podi: 13, vittorie: 4 }],
-                rankP: [{pos: 12, nome: 'D. Blu', pt: 10}], rankT: [{pos: 6, nome: 'VRT Kids', pt: 15}],
-                last: [{pos: 12, nome: 'D. Blu', pt: 0}],
-                palm: [{anno: '2022', logo: 'https://cdn-icons-png.flaticon.com/512/744/744922.png', testo: 'DRIVER CHAMPION'}]
+            { 
+                nome: 'FALCOBLAK', 
+                img: 'https://via.placeholder.com/150', 
+                partenze: 0, 
+                podi: 0, 
+                vittorie: 0 
             }
-        };
-
+        ],
+        rankP: [
+            {pos: 1, nome: 'PILOTA F4-A', pt: 0},
+            {pos: 2, nome: 'PILOTA F4-B', pt: 0}
+        ],
+        rankT: [
+            {pos: 1, nome: 'VRT F4 TEAM', pt: 0}
+        ],
+        last: [
+            {pos: 1, nome: 'PILOTA F4-A', pt: 0},
+            {pos: 2, nome: 'PILOTA F4-B', pt: 0}
+        ],
+        palm: [
+            {anno: '2022', logo: 'https://cdn-icons-png.flaticon.com/512/744/744922.png', testo: 'DRIVER CHAMPION'}
+        ]
+    }
+};
         function showCategory(cat) {
             let html = `<h2 style="font-family:'Orbitron'; color:var(--accent-color)">TEAM ${cat}</h2>`;
             teamData[cat].piloti.forEach(p => {
